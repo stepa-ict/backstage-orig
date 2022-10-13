@@ -1,5 +1,5 @@
 app:
-  title: Backstage Example App
+  title: GMS-IDP Platform
   baseUrl: http://localhost:3000
   googleAnalyticsTrackingId: # UA-000000-0
   #datadogRum:
@@ -8,12 +8,12 @@ app:
   #   site: # datadoghq.eu default = datadoghq.com
   #   env: # optional
   support:
-    url: https://github.com/backstage/backstage/issues # Used by common ErrorPage
+    url: https://github.com/stepa-ict/backstage-orig/issues # Used by common ErrorPage
     items: # Used by common SupportButton component
       - title: Issues
         icon: github
         links:
-          - url: https://github.com/backstage/backstage/issues
+          - url: https://github.com/stepa-ict/backstage-orig/issues
             title: GitHub Issues
       - title: Discord Chatroom
         icon: chat
@@ -52,10 +52,8 @@ backend:
 
 # See README.md in the proxy-backend plugin for information on the configuration format
 proxy:
-  '/circleci/api':
-    target: https://circleci.com/api/v1.1
-    headers:
-      Circle-Token: ${CIRCLECI_AUTH_TOKEN}
+  '/ci/wf':
+    target: https://argowf.mgmt.neotechsolutions.org/login?redirect=https://argowf.mgmt.neotechsolutions.org/
 
   '/jenkins/api':
     target: http://localhost:8080
@@ -120,7 +118,7 @@ proxy:
       Authorization: 'Api-Token ${DYNATRACE_ACCESS_TOKEN}'
 
 organization:
-  name: My Company
+  name: NeoTech Solutions
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs
@@ -175,7 +173,7 @@ allure:
 integrations:
   github:
     - host: github.com
-      token: ${GITHUB_TOKEN}
+      token: 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
   ### Example for how to add your GitHub Enterprise instance using the API:
   # - host: ghe.example.net
   #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -220,6 +218,7 @@ catalog:
         - System
         - Domain
         - Location
+        
 
   processors:
     ldapOrg:
@@ -426,8 +425,8 @@ homepage:
       timezone: UTC
     - label: NYC
       timezone: 'America/New_York'
-    - label: STO
-      timezone: 'Europe/Stockholm'
+    - label: BGD
+      timezone: 'Europe/Belgrade'
     - label: TYO
       timezone: 'Asia/Tokyo'
 pagerduty:
