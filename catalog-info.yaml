@@ -21,3 +21,42 @@ spec:
   type: library
   owner: CNCF
   lifecycle: experimental
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: second-test
+  description: An example of a Backstage application.
+  # Example for optional annotations
+  # annotations:
+  #   github.com/project-slug: backstage/backstage
+  #   backstage.io/techdocs-ref: dir:.
+spec:
+  type: website
+  owner: john@example.com
+  lifecycle: experimental
+
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: example-grpc-api
+spec:
+  type: grpc
+  lifecycle: experimental
+  owner: guests
+  system: examples
+  definition: |
+    syntax = "proto3";
+
+    service Exampler {
+      rpc Example (ExampleMessage) returns (ExampleMessage) {};
+    }
+
+    message ExampleMessage {
+      string example = 1;
+    };
+
+---
