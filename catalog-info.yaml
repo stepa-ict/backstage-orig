@@ -26,7 +26,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: second-test-stepa
+  name: second-test-stepaa
   description: An example of a Backstage application.
   # Example for optional annotations
   # annotations:
